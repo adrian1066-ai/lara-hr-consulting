@@ -1,424 +1,408 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.3">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Lara HR Consulting</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --bg:#0a0a0a;--bg2:#111111;--bg3:#181818;
+    --text:#f0ede8;--text2:#9a9690;--text3:#5a5855;
+    --accent:#c9a96e;--accent2:#a8834a;
+    --border:#222220;--border2:#2e2e2c;
+  }
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg);color:var(--text);font-family:'Georgia',serif;line-height:1.7;}
+
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,0.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:0 2rem;}
+  .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;}
+  .logo{font-size:1.1rem;letter-spacing:0.12em;color:var(--accent);font-family:'Georgia',serif;font-style:italic;}
+  .logo span{color:var(--text2);font-style:normal;font-size:0.75rem;display:block;letter-spacing:0.2em;text-transform:uppercase;margin-top:-2px;}
+  .nav-links{display:flex;gap:2rem;list-style:none;}
+  .nav-links a{color:var(--text2);text-decoration:none;font-family:system-ui,sans-serif;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;transition:color 0.2s;}
+  .nav-links a:hover{color:var(--accent);}
+  .nav-cta{background:transparent;border:1px solid var(--accent);color:var(--accent);padding:8px 20px;font-family:system-ui,sans-serif;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:all 0.2s;}
+  .nav-cta:hover{background:var(--accent);color:var(--bg);}
+
+  section{padding:6rem 2rem;}
+  .container{max-width:1100px;margin:0 auto;}
+
+  /* Hero */
+  #hero{padding:10rem 2rem 7rem;text-align:center;border-bottom:1px solid var(--border);}
+  .eyebrow{font-family:system-ui,sans-serif;font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem;}
+  h1{font-size:clamp(2.2rem,5vw,3.8rem);font-weight:400;line-height:1.2;color:var(--text);margin-bottom:1.5rem;max-width:800px;margin-left:auto;margin-right:auto;}
+  h1 em{color:var(--accent);font-style:italic;}
+  .hero-sub{font-family:system-ui,sans-serif;font-size:1rem;color:var(--text2);max-width:560px;margin:0 auto 2.5rem;line-height:1.7;}
+  .btn-primary{display:inline-block;background:var(--accent);color:var(--bg);padding:14px 36px;font-family:system-ui,sans-serif;font-size:0.8rem;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;cursor:pointer;border:none;transition:background 0.2s;}
+  .btn-primary:hover{background:var(--accent2);}
+  .btn-ghost{display:inline-block;background:transparent;color:var(--text2);padding:14px 36px;font-family:system-ui,sans-serif;font-size:0.8rem;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;cursor:pointer;border:1px solid var(--border2);transition:all 0.2s;margin-left:1rem;}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent);}
+
+  /* Stats */
+  #stats{padding:3rem 2rem;border-bottom:1px solid var(--border);}
+  .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0;}
+  .stat-item{padding:2rem;text-align:center;border-right:1px solid var(--border);}
+  .stat-item:last-child{border-right:none;}
+  .stat-num{font-size:2.2rem;font-weight:400;color:var(--accent);font-style:italic;display:block;}
+  .stat-label{font-family:system-ui,sans-serif;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text3);margin-top:4px;}
+
+  /* About */
+  #about{border-bottom:1px solid var(--border);}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+  .section-label{font-family:system-ui,sans-serif;font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;}
+  h2{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:400;line-height:1.3;margin-bottom:1.5rem;}
+  .about-text{font-family:system-ui,sans-serif;color:var(--text2);font-size:0.95rem;line-height:1.8;margin-bottom:1rem;}
+  .about-right{border-left:1px solid var(--border);padding-left:3rem;}
+  .value-item{padding:1.2rem 0;border-bottom:1px solid var(--border);}
+  .value-item:last-child{border-bottom:none;}
+  .value-title{font-size:0.9rem;color:var(--text);margin-bottom:4px;}
+  .value-desc{font-family:system-ui,sans-serif;font-size:0.82rem;color:var(--text3);line-height:1.6;}
+
+  /* Services */
+  #services{border-bottom:1px solid var(--border);}
+  .services-header{text-align:center;margin-bottom:4rem;}
+  .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:var(--border);}
+  .service-card{background:var(--bg);padding:2.5rem;transition:background 0.2s;}
+  .service-card:hover{background:var(--bg3);}
+  .service-icon{width:40px;height:40px;border:1px solid var(--accent);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;}
+  .service-icon svg{width:18px;height:18px;stroke:var(--accent);fill:none;stroke-width:1.5;}
+  .service-title{font-size:1.05rem;font-weight:400;margin-bottom:0.8rem;color:var(--text);}
+  .service-desc{font-family:system-ui,sans-serif;font-size:0.83rem;color:var(--text2);line-height:1.7;}
+  .service-tags{margin-top:1.2rem;display:flex;flex-wrap:wrap;gap:6px;}
+  .tag{font-family:system-ui,sans-serif;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text3);border:1px solid var(--border2);padding:3px 10px;}
+
+  /* Programs */
+  #programs{border-bottom:1px solid var(--border);background:var(--bg2);}
+  .programs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3rem;}
+  .program-card{border:1px solid var(--border2);padding:2rem;}
+  .program-code{font-size:2rem;font-style:italic;color:var(--accent);margin-bottom:0.5rem;}
+  .program-name{font-family:system-ui,sans-serif;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text3);margin-bottom:1rem;}
+  .program-desc{font-family:system-ui,sans-serif;font-size:0.83rem;color:var(--text2);line-height:1.7;}
+
+  /* Contact */
+  #contact{background:var(--bg);}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+  .contact-info h2{margin-bottom:1rem;}
+  .contact-info p{font-family:system-ui,sans-serif;font-size:0.9rem;color:var(--text2);line-height:1.8;margin-bottom:2rem;}
+  .contact-detail{display:flex;align-items:center;gap:12px;margin-bottom:1rem;font-family:system-ui,sans-serif;font-size:0.85rem;color:var(--text2);}
+  .contact-detail svg{width:16px;height:16px;stroke:var(--accent);fill:none;stroke-width:1.5;flex-shrink:0;}
+
+  .form-card{background:var(--bg2);border:1px solid var(--border);padding:2.5rem;}
+  .form-title{font-size:1rem;margin-bottom:2rem;color:var(--text);}
+  .form-group{margin-bottom:1.2rem;}
+  label{font-family:system-ui,sans-serif;font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text3);display:block;margin-bottom:6px;}
+  input,select,textarea{width:100%;background:var(--bg3);border:1px solid var(--border2);color:var(--text);padding:10px 14px;font-family:system-ui,sans-serif;font-size:0.88rem;outline:none;transition:border-color 0.2s;border-radius:0;}
+  input:focus,select:focus,textarea:focus{border-color:var(--accent);}
+  select option{background:var(--bg3);}
+  textarea{resize:vertical;min-height:100px;}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+  .submit-btn{width:100%;background:var(--accent);color:var(--bg);border:none;padding:14px;font-family:system-ui,sans-serif;font-size:0.8rem;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;transition:background 0.2s;margin-top:0.5rem;}
+  .submit-btn:hover{background:var(--accent2);}
+  .submit-btn:disabled{background:var(--text3);cursor:not-allowed;}
+  .form-msg{margin-top:1rem;padding:12px;font-family:system-ui,sans-serif;font-size:0.83rem;text-align:center;display:none;}
+  .form-msg.success{background:rgba(21,128,61,0.15);border:1px solid rgba(21,128,61,0.3);color:#86efac;}
+  .form-msg.error{background:rgba(153,27,27,0.15);border:1px solid rgba(153,27,27,0.3);color:#fca5a5;}
+
+  footer{padding:2rem;border-top:1px solid var(--border);text-align:center;}
+  .footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;}
+  .footer-logo{font-style:italic;color:var(--accent);font-size:0.95rem;}
+  .footer-copy{font-family:system-ui,sans-serif;font-size:0.75rem;color:var(--text3);}
+
+  @media(max-width:768px){
+    .about-grid,.contact-grid{grid-template-columns:1fr;}
+    .about-right{border-left:none;padding-left:0;border-top:1px solid var(--border);padding-top:2rem;}
+    .programs-grid{grid-template-columns:1fr;}
+    .form-row{grid-template-columns:1fr;}
+    .nav-links{display:none;}
+    .stat-item{border-right:none;border-bottom:1px solid var(--border);}
+    .footer-inner{flex-direction:column;gap:0.5rem;}
+  }
+</style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="en"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1">&lt;meta charset="UTF-8"/&gt;</p>
-<p class="p1">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"/&gt;</p>
-<p class="p1">&lt;title&gt;Lara HR Consulting&lt;/title&gt;</p>
-<p class="p1">&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>*{margin:0;padding:0;box-sizing:border-box;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>:root{</p>
-<p class="p1"><span class="Apple-converted-space">    </span>--bg:#0a0a0a;--bg2:#111111;--bg3:#181818;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>--text:#f0ede8;--text2:#9a9690;--text3:#5a5855;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>--accent:#c9a96e;--accent2:#a8834a;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>--border:#222220;--border2:#2e2e2c;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>html{scroll-behavior:smooth;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>body{background:var(--bg);color:var(--text);font-family:'Georgia',serif;line-height:1.7;}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,0.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:0 2rem;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.logo{font-size:1.1rem;letter-spacing:0.12em;color:var(--accent);font-family:'Georgia',serif;font-style:italic;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.logo span{color:var(--text2);font-style:normal;font-size:0.75rem;display:block;letter-spacing:0.2em;text-transform:uppercase;margin-top:-2px;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.nav-links{display:flex;gap:2rem;list-style:none;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.nav-links a{color:var(--text2);text-decoration:none;font-family:system-ui,sans-serif;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;transition:color 0.2s;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.nav-links a:hover{color:var(--accent);}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.nav-cta{background:transparent;border:1px solid var(--accent);color:var(--accent);padding:8px 20px;font-family:system-ui,sans-serif;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:all 0.2s;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.nav-cta:hover{background:var(--accent);color:var(--bg);}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>section{padding:6rem 2rem;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.container{max-width:1100px;margin:0 auto;}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>/* Hero */</p>
-<p class="p1"><span class="Apple-converted-space">  </span>#hero{padding:10rem 2rem 7rem;text-align:center;border-bottom:1px solid var(--border);}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.eyebrow{font-family:system-ui,sans-serif;font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>h1{font-size:clamp(2.2rem,5vw,3.8rem);font-weight:400;line-height:1.2;color:var(--text);margin-bottom:1.5rem;max-width:800px;margin-left:auto;margin-right:auto;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>h1 em{color:var(--accent);font-style:italic;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.hero-sub{font-family:system-ui,sans-serif;font-size:1rem;color:var(--text2);max-width:560px;margin:0 auto 2.5rem;line-height:1.7;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.btn-primary{display:inline-block;background:var(--accent);color:var(--bg);padding:14px 36px;font-family:system-ui,sans-serif;font-size:0.8rem;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;cursor:pointer;border:none;transition:background 0.2s;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.btn-primary:hover{background:var(--accent2);}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.btn-ghost{display:inline-block;background:transparent;color:var(--text2);padding:14px 36px;font-family:system-ui,sans-serif;font-size:0.8rem;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;cursor:pointer;border:1px solid var(--border2);transition:all 0.2s;margin-left:1rem;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.btn-ghost:hover{border-color:var(--accent);color:var(--accent);}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>/* Stats */</p>
-<p class="p1"><span class="Apple-converted-space">  </span>#stats{padding:3rem 2rem;border-bottom:1px solid var(--border);}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.stat-item{padding:2rem;text-align:center;border-right:1px solid var(--border);}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.stat-item:last-child{border-right:none;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.stat-num{font-size:2.2rem;font-weight:400;color:var(--accent);font-style:italic;display:block;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.stat-label{font-family:system-ui,sans-serif;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text3);margin-top:4px;}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>/* About */</p>
-<p class="p1"><span class="Apple-converted-space">  </span>#about{border-bottom:1px solid var(--border);}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.section-label{font-family:system-ui,sans-serif;font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>h2{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:400;line-height:1.3;margin-bottom:1.5rem;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.about-text{font-family:system-ui,sans-serif;color:var(--text2);font-size:0.95rem;line-height:1.8;margin-bottom:1rem;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.about-right{border-left:1px solid var(--border);padding-left:3rem;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.value-item{padding:1.2rem 0;border-bottom:1px solid var(--border);}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.value-item:last-child{border-bottom:none;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.value-title{font-size:0.9rem;color:var(--text);margin-bottom:4px;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.value-desc{font-family:system-ui,sans-serif;font-size:0.82rem;color:var(--text3);line-height:1.6;}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>/* Services */</p>
-<p class="p1"><span class="Apple-converted-space">  </span>#services{border-bottom:1px solid var(--border);}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.services-header{text-align:center;margin-bottom:4rem;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:var(--border);}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.service-card{background:var(--bg);padding:2.5rem;transition:background 0.2s;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.service-card:hover{background:var(--bg3);}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.service-icon{width:40px;height:40px;border:1px solid var(--accent);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.service-icon svg{width:18px;height:18px;stroke:var(--accent);fill:none;stroke-width:1.5;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.service-title{font-size:1.05rem;font-weight:400;margin-bottom:0.8rem;color:var(--text);}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.service-desc{font-family:system-ui,sans-serif;font-size:0.83rem;color:var(--text2);line-height:1.7;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.service-tags{margin-top:1.2rem;display:flex;flex-wrap:wrap;gap:6px;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.tag{font-family:system-ui,sans-serif;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text3);border:1px solid var(--border2);padding:3px 10px;}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>/* Programs */</p>
-<p class="p1"><span class="Apple-converted-space">  </span>#programs{border-bottom:1px solid var(--border);background:var(--bg2);}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.programs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3rem;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.program-card{border:1px solid var(--border2);padding:2rem;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.program-code{font-size:2rem;font-style:italic;color:var(--accent);margin-bottom:0.5rem;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.program-name{font-family:system-ui,sans-serif;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text3);margin-bottom:1rem;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.program-desc{font-family:system-ui,sans-serif;font-size:0.83rem;color:var(--text2);line-height:1.7;}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>/* Contact */</p>
-<p class="p1"><span class="Apple-converted-space">  </span>#contact{background:var(--bg);}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.contact-info h2{margin-bottom:1rem;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.contact-info p{font-family:system-ui,sans-serif;font-size:0.9rem;color:var(--text2);line-height:1.8;margin-bottom:2rem;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.contact-detail{display:flex;align-items:center;gap:12px;margin-bottom:1rem;font-family:system-ui,sans-serif;font-size:0.85rem;color:var(--text2);}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.contact-detail svg{width:16px;height:16px;stroke:var(--accent);fill:none;stroke-width:1.5;flex-shrink:0;}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>.form-card{background:var(--bg2);border:1px solid var(--border);padding:2.5rem;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.form-title{font-size:1rem;margin-bottom:2rem;color:var(--text);}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.form-group{margin-bottom:1.2rem;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>label{font-family:system-ui,sans-serif;font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text3);display:block;margin-bottom:6px;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>input,select,textarea{width:100%;background:var(--bg3);border:1px solid var(--border2);color:var(--text);padding:10px 14px;font-family:system-ui,sans-serif;font-size:0.88rem;outline:none;transition:border-color 0.2s;border-radius:0;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>input:focus,select:focus,textarea:focus{border-color:var(--accent);}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>select option{background:var(--bg3);}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>textarea{resize:vertical;min-height:100px;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.submit-btn{width:100%;background:var(--accent);color:var(--bg);border:none;padding:14px;font-family:system-ui,sans-serif;font-size:0.8rem;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;transition:background 0.2s;margin-top:0.5rem;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.submit-btn:hover{background:var(--accent2);}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.submit-btn:disabled{background:var(--text3);cursor:not-allowed;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.form-msg{margin-top:1rem;padding:12px;font-family:system-ui,sans-serif;font-size:0.83rem;text-align:center;display:none;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.form-msg.success{background:rgba(21,128,61,0.15);border:1px solid rgba(21,128,61,0.3);color:#86efac;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.form-msg.error{background:rgba(153,27,27,0.15);border:1px solid rgba(153,27,27,0.3);color:#fca5a5;}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>footer{padding:2rem;border-top:1px solid var(--border);text-align:center;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.footer-logo{font-style:italic;color:var(--accent);font-size:0.95rem;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.footer-copy{font-family:system-ui,sans-serif;font-size:0.75rem;color:var(--text3);}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>@media(max-width:768px){</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.about-grid,.contact-grid{grid-template-columns:1fr;}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.about-right{border-left:none;padding-left:0;border-top:1px solid var(--border);padding-top:2rem;}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.programs-grid{grid-template-columns:1fr;}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.form-row{grid-template-columns:1fr;}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.nav-links{display:none;}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.stat-item{border-right:none;border-bottom:1px solid var(--border);}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.footer-inner{flex-direction:column;gap:0.5rem;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1">&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;nav&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="nav-inner"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="logo"&gt;Lara HR Consulting&lt;span&gt;Human Resources &amp; Payroll&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;ul class="nav-links"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;&lt;a href="#services"&gt;Services&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;&lt;a href="#programs"&gt;Programs&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;&lt;a href="#about"&gt;About&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;&lt;a href="#contact"&gt;Contact&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})"&gt;Get in Touch&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p1">&lt;/nav&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;section id="hero"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="eyebrow"&gt;HR &amp; Payroll Consulting&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;h1&gt;Strategic HR Solutions for &lt;em&gt;Growing Businesses&lt;/em&gt;&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;p class="hero-sub"&gt;Compliance expertise, workforce programs, and payroll management tailored for small and mid-sized companies across California and beyond.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})"&gt;Schedule a Consultation&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;a class="btn-ghost" href="#services"&gt;Our Services&lt;/a&gt;</p>
-<p class="p1">&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;section id="stats"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="stats-grid"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="stat-item"&gt;&lt;span class="stat-num"&gt;CA&lt;/span&gt;&lt;span class="stat-label"&gt;&amp; Multi-State Expertise&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="stat-item"&gt;&lt;span class="stat-num"&gt;3+&lt;/span&gt;&lt;span class="stat-label"&gt;Workforce Programs&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="stat-item"&gt;&lt;span class="stat-num"&gt;SMB&lt;/span&gt;&lt;span class="stat-label"&gt;Focused Approach&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="stat-item"&gt;&lt;span class="stat-num"&gt;360°&lt;/span&gt;&lt;span class="stat-label"&gt;HR &amp; Payroll Coverage&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p1">&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;section id="about"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="about-grid"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="section-label"&gt;About Lara HR&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;Where Compliance Meets Clarity&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="about-text"&gt;Lara HR Consulting partners with small and mid-sized businesses to navigate the complexities of HR compliance, payroll accuracy, and workforce program implementation — so you can focus on growing your business.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="about-text"&gt;With deep expertise in California labor law and multi-state regulations, we help you avoid costly penalties and build processes that scale.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="about-right"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="value-item"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="value-title"&gt;Compliance-First&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="value-desc"&gt;We stay ahead of regulatory changes so your business doesn't fall behind.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="value-item"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="value-title"&gt;Tailored to SMBs&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="value-desc"&gt;No one-size-fits-all. Every engagement is designed around your team size and industry.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="value-item"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="value-title"&gt;Ongoing Partnership&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="value-desc"&gt;From one-time audits to long-term payroll management — we're here when you need us.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="value-item"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="value-title"&gt;Multi-State Ready&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="value-desc"&gt;California specialist with the expertise to support operations across multiple states.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p1">&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;section id="services"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="services-header"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="section-label"&gt;What We Do&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;Our Services&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="services-grid"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="service-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="service-icon"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/&gt;&lt;/svg&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="service-title"&gt;HR Compliance Audits&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="service-desc"&gt;Comprehensive audits of your HR practices against California and federal labor law. Identify gaps, mitigate risk, and implement corrective action plans.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="service-tags"&gt;&lt;span class="tag"&gt;California&lt;/span&gt;&lt;span class="tag"&gt;Multi-State&lt;/span&gt;&lt;span class="tag"&gt;Federal&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="service-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="service-icon"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;svg viewBox="0 0 24 24"&gt;&lt;rect x="2" y="3" width="20" height="14" rx="2"/&gt;&lt;path d="M8 21h8M12 17v4"/&gt;&lt;/svg&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="service-title"&gt;Payroll Management&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="service-desc"&gt;Full-service payroll processing or outsourced management. We handle the complexity so your employees are paid accurately and on time, every time.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="service-tags"&gt;&lt;span class="tag"&gt;Processing&lt;/span&gt;&lt;span class="tag"&gt;Reporting&lt;/span&gt;&lt;span class="tag"&gt;Tax Filing&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="service-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="service-icon"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/&gt;&lt;/svg&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="service-title"&gt;Payroll Compliance Audits&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="service-desc"&gt;Independent review of your existing payroll processes. Catch misclassifications, overtime errors, and wage statement deficiencies before regulators do.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="service-tags"&gt;&lt;span class="tag"&gt;Wage &amp; Hour&lt;/span&gt;&lt;span class="tag"&gt;Classification&lt;/span&gt;&lt;span class="tag"&gt;FLSA&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="service-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="service-icon"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/&gt;&lt;/svg&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="service-title"&gt;Workforce Program Implementation&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="service-desc"&gt;Design and implement government-sponsored workforce programs that reduce your payroll costs and support employee development. We manage the entire process.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="service-tags"&gt;&lt;span class="tag"&gt;WOTC&lt;/span&gt;&lt;span class="tag"&gt;OJT&lt;/span&gt;&lt;span class="tag"&gt;PWE&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="service-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="service-icon"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/&gt;&lt;/svg&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="service-title"&gt;HR Policy Development&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="service-desc"&gt;Build or update your employee handbook, onboarding protocols, and internal HR policies to ensure they're legally sound and aligned with best practices.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="service-tags"&gt;&lt;span class="tag"&gt;Handbooks&lt;/span&gt;&lt;span class="tag"&gt;Onboarding&lt;/span&gt;&lt;span class="tag"&gt;Policies&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="service-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="service-icon"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/&gt;&lt;/svg&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="service-title"&gt;HR Advisory &amp; Support&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="service-desc"&gt;On-call HR guidance for day-to-day questions, employee relations issues, and strategic workforce planning. Like having an HR director on retainer.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="service-tags"&gt;&lt;span class="tag"&gt;Advisory&lt;/span&gt;&lt;span class="tag"&gt;Retainer&lt;/span&gt;&lt;span class="tag"&gt;Strategy&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p1">&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;section id="programs"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="section-label"&gt;Workforce Incentive Programs&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Programs We Implement&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;p style="font-family:system-ui,sans-serif;color:var(--text2);font-size:0.9rem;max-width:560px;margin-top:0.5rem;"&gt;Government-sponsored programs that save your business money while investing in your workforce. We handle the paperwork — you receive the benefits.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="programs-grid"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="program-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="program-code"&gt;WOTC&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="program-name"&gt;Work Opportunity Tax Credit&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="program-desc"&gt;Federal tax credit of up to $9,600 per eligible new hire. We screen candidates, file certifications, and maximize your credit claim with the IRS.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="program-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="program-code"&gt;OJT&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="program-name"&gt;On-the-Job Training&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="program-desc"&gt;Receive wage reimbursements while training new employees. We connect you with workforce development boards and manage the full program enrollment.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="program-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="program-code"&gt;PWE&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="program-name"&gt;Paid Work Experience&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="program-desc"&gt;Subsidized work experience placements that reduce your direct labor costs while building a pipeline of job-ready candidates for your industry.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p1">&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;section id="contact"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="contact-grid"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="contact-info"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="section-label"&gt;Get Started&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;Let's Talk About Your Business&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;Whether you're facing a compliance challenge, looking to clean up payroll, or ready to take advantage of workforce programs — we're here to help. Reach out and we'll follow up within one business day.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="contact-detail"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/&gt;&lt;path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/&gt;&lt;/svg&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>California &amp; Multi-State</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="contact-detail"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/&gt;&lt;/svg&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>adrian.rger01@outlook.com</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="contact-detail"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/&gt;&lt;/svg&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>Response within 1 business day</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="form-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="form-title"&gt;Request a Consultation&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="form-row"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="form-group"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;label for="fname"&gt;Your Name&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;input type="text" id="fname" placeholder="Jane Smith"/&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="form-group"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;label for="phone"&gt;Phone Number&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;input type="tel" id="phone" placeholder="(555) 000-0000"/&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="form-group"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;label for="email"&gt;Email Address&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="email" id="email" placeholder="jane@company.com"/&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="form-group"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;label for="company"&gt;Company Name&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="text" id="company" placeholder="Your Company, LLC"/&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="form-group"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;label for="service"&gt;Service of Interest&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;select id="service"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;option value=""&gt;Select a service...&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;option&gt;HR Compliance Audit&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;option&gt;Payroll Management&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;option&gt;Payroll Compliance Audit&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;option&gt;Workforce Programs (WOTC / OJT / PWE)&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;option&gt;HR Policy Development&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;option&gt;HR Advisory &amp; Support&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;option&gt;Not sure — just exploring&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/select&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="form-group"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;label for="message"&gt;Additional Notes (optional)&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;textarea id="message" placeholder="Tell us a bit about your situation..."&gt;&lt;/textarea&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;button class="submit-btn" id="submitBtn" onclick="submitForm()"&gt;Send Request&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="form-msg" id="formMsg"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p1">&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;footer&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="footer-inner"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="footer-logo"&gt;Lara HR Consulting&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="footer-copy"&gt;&amp;copy; 2025 Lara HR Consulting. All rights reserved.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p1">&lt;/footer&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;script&gt;</p>
-<p class="p1">async function submitForm(){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const name=document.getElementById('fname').value.trim();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const phone=document.getElementById('phone').value.trim();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const email=document.getElementById('email').value.trim();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const company=document.getElementById('company').value.trim();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const service=document.getElementById('service').value;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const message=document.getElementById('message').value.trim();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const btn=document.getElementById('submitBtn');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const msg=document.getElementById('formMsg');</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>if(!name||!phone||!email||!company){</p>
-<p class="p1"><span class="Apple-converted-space">    </span>msg.textContent='Please fill in all required fields.';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>msg.className='form-msg error';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>msg.style.display='block';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>return;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if(!/\S+@\S+\.\S+/.test(email)){</p>
-<p class="p1"><span class="Apple-converted-space">    </span>msg.textContent='Please enter a valid email address.';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>msg.className='form-msg error';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>msg.style.display='block';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>return;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>btn.disabled=true;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>btn.textContent='Sending...';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>msg.style.display='none';</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>try{</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const res=await emailjs.send('service_qbj9v3g','template_t7sdeqr',{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>from_name:name,</p>
-<p class="p1"><span class="Apple-converted-space">      </span>name:name,</p>
-<p class="p1"><span class="Apple-converted-space">      </span>from_email:email,</p>
-<p class="p1"><span class="Apple-converted-space">      </span>email:email,</p>
-<p class="p1"><span class="Apple-converted-space">      </span>phone:phone,</p>
-<p class="p1"><span class="Apple-converted-space">      </span>company:company,</p>
-<p class="p1"><span class="Apple-converted-space">      </span>service:service||'Not specified',</p>
-<p class="p1"><span class="Apple-converted-space">      </span>message:message||'No additional notes.',</p>
-<p class="p1"><span class="Apple-converted-space">      </span>to_email:'adrian.rger01@outlook.com'</p>
-<p class="p1"><span class="Apple-converted-space">    </span>});</p>
-<p class="p1"><span class="Apple-converted-space">    </span>msg.textContent='Your request was sent successfully. We\'ll be in touch within one business day.';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>msg.className='form-msg success';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>msg.style.display='block';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('fname').value='';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('phone').value='';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('email').value='';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('company').value='';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('service').value='';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('message').value='';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>btn.textContent='Request Sent';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}catch(e){</p>
-<p class="p1"><span class="Apple-converted-space">    </span>msg.textContent='There was an issue sending your request. Please try again later or call us directly.';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>msg.className='form-msg error';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>msg.style.display='block';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>btn.disabled=false;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>btn.textContent='Send Request';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1">}</p>
-<p class="p1">&lt;/script&gt;</p>
-<p class="p1">&lt;script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"&gt;&lt;/script&gt;</p>
-<p class="p1">&lt;script&gt;emailjs.init('WEPExR-6sbo7pNiE1');&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo">Lara HR Consulting<span>Human Resources & Payroll</span></div>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#programs">Programs</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get in Touch</button>
+  </div>
+</nav>
+
+<section id="hero">
+  <div class="eyebrow">HR & Payroll Consulting</div>
+  <h1>Strategic HR Solutions for <em>Growing Businesses</em></h1>
+  <p class="hero-sub">Compliance expertise, workforce programs, and payroll management tailored for small and mid-sized companies across California and beyond.</p>
+  <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Schedule a Consultation</button>
+  <a class="btn-ghost" href="#services">Our Services</a>
+</section>
+
+<section id="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item"><span class="stat-num">CA</span><span class="stat-label">& Multi-State Expertise</span></div>
+      <div class="stat-item"><span class="stat-num">3+</span><span class="stat-label">Workforce Programs</span></div>
+      <div class="stat-item"><span class="stat-num">SMB</span><span class="stat-label">Focused Approach</span></div>
+      <div class="stat-item"><span class="stat-num">360°</span><span class="stat-label">HR & Payroll Coverage</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <div class="section-label">About Lara HR</div>
+        <h2>Where Compliance Meets Clarity</h2>
+        <p class="about-text">Lara HR Consulting partners with small and mid-sized businesses to navigate the complexities of HR compliance, payroll accuracy, and workforce program implementation — so you can focus on growing your business.</p>
+        <p class="about-text">With deep expertise in California labor law and multi-state regulations, we help you avoid costly penalties and build processes that scale.</p>
+      </div>
+      <div class="about-right">
+        <div class="value-item">
+          <div class="value-title">Compliance-First</div>
+          <div class="value-desc">We stay ahead of regulatory changes so your business doesn't fall behind.</div>
+        </div>
+        <div class="value-item">
+          <div class="value-title">Tailored to SMBs</div>
+          <div class="value-desc">No one-size-fits-all. Every engagement is designed around your team size and industry.</div>
+        </div>
+        <div class="value-item">
+          <div class="value-title">Ongoing Partnership</div>
+          <div class="value-desc">From one-time audits to long-term payroll management — we're here when you need us.</div>
+        </div>
+        <div class="value-item">
+          <div class="value-title">Multi-State Ready</div>
+          <div class="value-desc">California specialist with the expertise to support operations across multiple states.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <div class="services-header">
+      <div class="section-label">What We Do</div>
+      <h2>Our Services</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+        </div>
+        <div class="service-title">HR Compliance Audits</div>
+        <div class="service-desc">Comprehensive audits of your HR practices against California and federal labor law. Identify gaps, mitigate risk, and implement corrective action plans.</div>
+        <div class="service-tags"><span class="tag">California</span><span class="tag">Multi-State</span><span class="tag">Federal</span></div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <div class="service-title">Payroll Management</div>
+        <div class="service-desc">Full-service payroll processing or outsourced management. We handle the complexity so your employees are paid accurately and on time, every time.</div>
+        <div class="service-tags"><span class="tag">Processing</span><span class="tag">Reporting</span><span class="tag">Tax Filing</span></div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+        </div>
+        <div class="service-title">Payroll Compliance Audits</div>
+        <div class="service-desc">Independent review of your existing payroll processes. Catch misclassifications, overtime errors, and wage statement deficiencies before regulators do.</div>
+        <div class="service-tags"><span class="tag">Wage & Hour</span><span class="tag">Classification</span><span class="tag">FLSA</span></div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        </div>
+        <div class="service-title">Workforce Program Implementation</div>
+        <div class="service-desc">Design and implement government-sponsored workforce programs that reduce your payroll costs and support employee development. We manage the entire process.</div>
+        <div class="service-tags"><span class="tag">WOTC</span><span class="tag">OJT</span><span class="tag">PWE</span></div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+        </div>
+        <div class="service-title">HR Policy Development</div>
+        <div class="service-desc">Build or update your employee handbook, onboarding protocols, and internal HR policies to ensure they're legally sound and aligned with best practices.</div>
+        <div class="service-tags"><span class="tag">Handbooks</span><span class="tag">Onboarding</span><span class="tag">Policies</span></div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+        </div>
+        <div class="service-title">HR Advisory & Support</div>
+        <div class="service-desc">On-call HR guidance for day-to-day questions, employee relations issues, and strategic workforce planning. Like having an HR director on retainer.</div>
+        <div class="service-tags"><span class="tag">Advisory</span><span class="tag">Retainer</span><span class="tag">Strategy</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="programs">
+  <div class="container">
+    <div class="section-label">Workforce Incentive Programs</div>
+    <h2>Programs We Implement</h2>
+    <p style="font-family:system-ui,sans-serif;color:var(--text2);font-size:0.9rem;max-width:560px;margin-top:0.5rem;">Government-sponsored programs that save your business money while investing in your workforce. We handle the paperwork — you receive the benefits.</p>
+    <div class="programs-grid">
+      <div class="program-card">
+        <div class="program-code">WOTC</div>
+        <div class="program-name">Work Opportunity Tax Credit</div>
+        <div class="program-desc">Federal tax credit of up to $9,600 per eligible new hire. We screen candidates, file certifications, and maximize your credit claim with the IRS.</div>
+      </div>
+      <div class="program-card">
+        <div class="program-code">OJT</div>
+        <div class="program-name">On-the-Job Training</div>
+        <div class="program-desc">Receive wage reimbursements while training new employees. We connect you with workforce development boards and manage the full program enrollment.</div>
+      </div>
+      <div class="program-card">
+        <div class="program-code">PWE</div>
+        <div class="program-name">Paid Work Experience</div>
+        <div class="program-desc">Subsidized work experience placements that reduce your direct labor costs while building a pipeline of job-ready candidates for your industry.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="section-label">Get Started</div>
+        <h2>Let's Talk About Your Business</h2>
+        <p>Whether you're facing a compliance challenge, looking to clean up payroll, or ready to take advantage of workforce programs — we're here to help. Reach out and we'll follow up within one business day.</p>
+        <div class="contact-detail">
+          <svg viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          California & Multi-State
+        </div>
+        <div class="contact-detail">
+          <svg viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          adrian.rger01@outlook.com
+        </div>
+        <div class="contact-detail">
+          <svg viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          Response within 1 business day
+        </div>
+      </div>
+
+      <div>
+        <div class="form-card">
+          <div class="form-title">Request a Consultation</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">Your Name</label>
+              <input type="text" id="fname" placeholder="Jane Smith"/>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" placeholder="(555) 000-0000"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="jane@company.com"/>
+          </div>
+          <div class="form-group">
+            <label for="company">Company Name</label>
+            <input type="text" id="company" placeholder="Your Company, LLC"/>
+          </div>
+          <div class="form-group">
+            <label for="service">Service of Interest</label>
+            <select id="service">
+              <option value="">Select a service...</option>
+              <option>HR Compliance Audit</option>
+              <option>Payroll Management</option>
+              <option>Payroll Compliance Audit</option>
+              <option>Workforce Programs (WOTC / OJT / PWE)</option>
+              <option>HR Policy Development</option>
+              <option>HR Advisory & Support</option>
+              <option>Not sure — just exploring</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Additional Notes (optional)</label>
+            <textarea id="message" placeholder="Tell us a bit about your situation..."></textarea>
+          </div>
+          <button class="submit-btn" id="submitBtn" onclick="submitForm()">Send Request</button>
+          <div class="form-msg" id="formMsg"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Lara HR Consulting</div>
+    <div class="footer-copy">&copy; 2025 Lara HR Consulting. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+async function submitForm(){
+  const name=document.getElementById('fname').value.trim();
+  const phone=document.getElementById('phone').value.trim();
+  const email=document.getElementById('email').value.trim();
+  const company=document.getElementById('company').value.trim();
+  const service=document.getElementById('service').value;
+  const message=document.getElementById('message').value.trim();
+  const btn=document.getElementById('submitBtn');
+  const msg=document.getElementById('formMsg');
+
+  if(!name||!phone||!email||!company){
+    msg.textContent='Please fill in all required fields.';
+    msg.className='form-msg error';
+    msg.style.display='block';
+    return;
+  }
+  if(!/\S+@\S+\.\S+/.test(email)){
+    msg.textContent='Please enter a valid email address.';
+    msg.className='form-msg error';
+    msg.style.display='block';
+    return;
+  }
+
+  btn.disabled=true;
+  btn.textContent='Sending...';
+  msg.style.display='none';
+
+  try{
+    const res=await emailjs.send('service_qbj9v3g','template_t7sdeqr',{
+      from_name:name,
+      name:name,
+      from_email:email,
+      email:email,
+      phone:phone,
+      company:company,
+      service:service||'Not specified',
+      message:message||'No additional notes.',
+      to_email:'adrian.rger01@outlook.com'
+    });
+    msg.textContent='Your request was sent successfully. We\'ll be in touch within one business day.';
+    msg.className='form-msg success';
+    msg.style.display='block';
+    document.getElementById('fname').value='';
+    document.getElementById('phone').value='';
+    document.getElementById('email').value='';
+    document.getElementById('company').value='';
+    document.getElementById('service').value='';
+    document.getElementById('message').value='';
+    btn.textContent='Request Sent';
+  }catch(e){
+    msg.textContent='There was an issue sending your request. Please try again later or call us directly.';
+    msg.className='form-msg error';
+    msg.style.display='block';
+    btn.disabled=false;
+    btn.textContent='Send Request';
+  }
+}
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>emailjs.init('WEPExR-6sbo7pNiE1');</script>
 </body>
 </html>
